@@ -1,26 +1,443 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f2efe6;
+  --blue: #123dbe;
+  --blue-soft: rgba(18, 61, 190, 0.18);
+  --blue-mid: rgba(18, 61, 190, 0.38);
+  --ink: #123dbe;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blueprint-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.blueprint-sheet {
+  position: relative;
+  min-height: 100vh;
+  border: 2px solid var(--blue);
+  background-image:
+    linear-gradient(45deg, transparent 49.6%, var(--blue-soft) 50%, transparent 50.4%),
+    linear-gradient(var(--blue-mid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blue-mid) 1px, transparent 1px),
+    linear-gradient(var(--blue-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blue-soft) 1px, transparent 1px);
+  background-size:
+    420px 420px,
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px;
+  background-position:
+    0 130px,
+    0 130px,
+    0 130px,
+    0 130px,
+    0 130px;
+}
+
+.sheet-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  min-height: 128px;
+  padding: 28px 32px 24px;
+  border-bottom: 2px solid var(--blue);
+  background: rgba(242, 239, 230, 0.88);
+  font-family: var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sheet-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sheet-meta div:last-child {
+  text-align: right;
+}
+
+.sheet-meta span,
+.sheet-meta strong {
+  display: block;
+  font-size: clamp(0.72rem, 1.15vw, 1rem);
+  line-height: 1.3;
+}
+
+.sheet-meta strong {
+  font-weight: 700;
+}
+
+.ruler {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(70px, 1fr));
+  min-height: 34px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--blue);
+  background: rgba(242, 239, 230, 0.62);
+  font-family: var(--font-geist-mono), monospace;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.ruler span {
+  min-width: 0;
+  padding: 7px 8px;
+  border-right: 1px solid var(--blue);
+  font-size: clamp(0.65rem, 1vw, 0.9rem);
+  white-space: nowrap;
+}
+
+.drawing-field {
+  position: relative;
+  min-height: clamp(430px, 58vh, 700px);
+  border-bottom: 2px solid var(--blue);
+}
+
+.angle-note,
+.scale-note,
+.coordinate-box,
+.field-footer {
+  position: absolute;
+  font-family: var(--font-geist-mono), monospace;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.angle-note {
+  top: 20px;
+  left: 20px;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+}
+
+.scale-note {
+  top: 20px;
+  right: 20px;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+}
+
+.coordinate-box {
+  top: 25%;
+  left: 52%;
+  padding: 8px 12px;
+  border: 1px solid var(--blue);
+  background: rgba(242, 239, 230, 0.82);
+  font-size: 0.75rem;
+}
+
+.title-block {
+  position: absolute;
+  right: 28px;
+  bottom: 48px;
+  left: 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+}
+
+.title-block h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(5.2rem, 17vw, 17rem);
+  font-weight: 700;
+  line-height: 0.72;
+  letter-spacing: 0;
+}
+
+.title-block p {
+  margin: 0 0 18px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(1.25rem, 3.4vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+
+.field-footer {
+  right: 16px;
+  bottom: 14px;
+  left: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: clamp(0.65rem, 1vw, 0.86rem);
+}
+
+.archive-index {
+  display: grid;
+  grid-template-columns: minmax(260px, 33.4%) minmax(0, 1fr);
+  min-height: 410px;
+  background: rgba(242, 239, 230, 0.9);
+}
+
+.mission-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 42px;
+  padding: 32px;
+  border-right: 2px solid var(--blue);
+}
+
+.mission-copy {
+  max-width: 480px;
+  margin: 0;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(0.78rem, 1.35vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.apparatus h2 {
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.apparatus ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: 0.08em;
+}
+
+.project-panel {
+  min-width: 0;
+}
+
+.project-header,
+.project-row {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr) minmax(140px, 210px);
+  gap: 20px;
+}
+
+.project-header {
+  align-items: center;
+  min-height: 70px;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(0.74rem, 1.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-row {
+  min-height: 86px;
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--blue);
+  font-family: var(--font-geist-mono), monospace;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.project-row:hover,
+.project-row:focus {
+  background: var(--blue);
+  color: var(--paper);
+  outline: none;
+}
+
+.project-id,
+.project-category {
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.project-copy {
+  min-width: 0;
+}
+
+.project-copy strong,
+.project-copy em,
+.project-copy span {
+  display: block;
+}
+
+.project-copy strong {
+  font-size: clamp(1rem, 2.2vw, 1.55rem);
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.project-copy em {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project-copy span {
+  max-width: 760px;
+  margin-top: 9px;
+  color: currentcolor;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.project-category {
+  align-self: start;
+}
+
+.sheet-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 20px;
+  padding: 24px 32px;
+  border-top: 2px solid var(--blue);
+  background: rgba(242, 239, 230, 0.92);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(0.68rem, 1vw, 0.86rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .sheet-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sheet-meta div:last-child {
+    text-align: left;
+  }
+
+  .title-block {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .title-block p {
+    margin: 0;
+  }
+
+  .archive-index {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-panel {
+    border-right: 0;
+    border-bottom: 2px solid var(--blue);
+  }
+
+  .project-header {
+    display: none;
+  }
+
+  .project-row {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .project-category {
+    grid-column: 2;
+    margin-top: 10px;
+  }
+
+  .sheet-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .blueprint-sheet {
+    border-width: 1px;
+  }
+
+  .sheet-meta {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .ruler {
+    grid-template-columns: repeat(6, minmax(62px, 1fr));
+  }
+
+  .drawing-field {
+    min-height: 360px;
+  }
+
+  .coordinate-box {
+    display: none;
+  }
+
+  .title-block {
+    right: 18px;
+    bottom: 54px;
+    left: 18px;
+  }
+
+  .title-block h1 {
+    font-size: clamp(4rem, 22vw, 6.25rem);
+  }
+
+  .title-block p {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    white-space: normal;
+  }
+
+  .field-footer {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mission-panel,
+  .project-row,
+  .sheet-footer {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
 }
