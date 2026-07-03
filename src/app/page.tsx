@@ -177,7 +177,10 @@ export default function Home() {
 
         <footer className="sheet-footer">
           <span>CONTACT: ashkan.rdn@gmail.com</span>
-          <span>LINKEDIN / GITHUB: ashkanradnia / ashkanrdn</span>
+          <span className="footer-links">
+            <a href="https://www.linkedin.com/in/ashkanradnia/">LinkedIn</a>
+            <a href="https://github.com/ashkanrdn">GitHub</a>
+          </span>
         </footer>
       </section>
     </main>
