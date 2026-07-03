@@ -3,10 +3,9 @@
 :root {
   --paper: #f2efe6;
   --blue: #123dbe;
-  --redline: #a8322d;
+  --accent-line: rgba(18, 61, 190, 0.54);
   --blue-soft: rgba(18, 61, 190, 0.18);
   --blue-mid: rgba(18, 61, 190, 0.38);
-  --red-soft: rgba(168, 50, 45, 0.14);
   --ink: #123dbe;
 }
 
@@ -61,45 +60,11 @@ a {
     24px 24px,
     24px 24px;
   background-position:
-    0 130px,
-    0 130px,
-    0 130px,
-    0 130px,
-    0 130px;
-}
-
-.sheet-meta {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  min-height: 128px;
-  padding: 28px 32px 24px;
-  border-bottom: 2px solid var(--blue);
-  background: rgba(242, 239, 230, 0.88);
-  font-family: var(--font-geist-mono), monospace;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.sheet-meta div {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.sheet-meta div:last-child {
-  text-align: right;
-}
-
-.sheet-meta span,
-.sheet-meta strong {
-  display: block;
-  font-size: clamp(0.72rem, 1.15vw, 1rem);
-  line-height: 1.3;
-}
-
-.sheet-meta strong {
-  font-weight: 700;
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
 }
 
 .ruler {
@@ -128,10 +93,7 @@ a {
   border-bottom: 2px solid var(--blue);
 }
 
-.angle-note,
-.scale-note,
-.coordinate-box,
-.field-footer {
+.coordinate-box {
   position: absolute;
   font-family: var(--font-geist-mono), monospace;
   font-weight: 700;
@@ -139,25 +101,13 @@ a {
   text-transform: uppercase;
 }
 
-.angle-note {
-  top: 20px;
-  left: 20px;
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
-}
-
-.scale-note {
-  top: 20px;
-  right: 20px;
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
-}
-
 .coordinate-box {
   top: 25%;
   left: 52%;
   padding: 8px 12px;
-  border: 1px solid var(--redline);
+  border: 1px solid var(--accent-line);
   background: rgba(242, 239, 230, 0.82);
-  color: var(--redline);
+  color: var(--accent-line);
   font-size: 0.75rem;
 }
 
@@ -190,16 +140,6 @@ a {
   line-height: 1.05;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.field-footer {
-  right: 16px;
-  bottom: 14px;
-  left: 16px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: clamp(0.65rem, 1vw, 0.86rem);
 }
 
 .archive-index {
@@ -238,13 +178,12 @@ a {
   letter-spacing: 0.08em;
 }
 
-.trajectory ol {
+.trajectory ul {
   display: grid;
   gap: 18px;
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: career-step;
   font-family: var(--font-geist-mono), monospace;
 }
 
@@ -252,23 +191,17 @@ a {
   position: relative;
   display: grid;
   gap: 7px;
-  padding-left: 42px;
-  counter-increment: career-step;
+  padding-left: 24px;
 }
 
 .trajectory li::before {
   position: absolute;
-  top: 0;
+  top: 0.2rem;
   left: 0;
-  width: 26px;
-  height: 26px;
-  border: 1px solid var(--redline);
-  color: var(--redline);
-  content: counter(career-step, decimal-leading-zero);
-  display: grid;
-  place-items: center;
-  font-size: 0.62rem;
-  font-weight: 800;
+  width: 9px;
+  height: 9px;
+  background: var(--accent-line);
+  content: "";
 }
 
 .trajectory strong {
@@ -299,32 +232,6 @@ a {
 
 .project-panel {
   min-width: 0;
-}
-
-.role-strip {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  border-bottom: 2px solid var(--blue);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: clamp(0.62rem, 0.9vw, 0.8rem);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.role-strip span {
-  min-height: 58px;
-  min-width: 0;
-  padding: 14px 16px;
-  border-right: 1px solid var(--blue);
-  background: var(--red-soft);
-  color: var(--redline);
-  display: flex;
-  align-items: center;
-}
-
-.role-strip span:last-child {
-  border-right: 0;
 }
 
 .project-header,
@@ -410,7 +317,7 @@ a {
 .project-copy small {
   max-width: 760px;
   margin-top: 10px;
-  color: var(--redline);
+  color: var(--accent-line);
   font-size: 0.72rem;
   font-weight: 800;
   line-height: 1.35;
@@ -422,109 +329,9 @@ a {
   align-self: start;
 }
 
-.writing-section {
-  display: grid;
-  grid-template-columns: minmax(280px, 31%) minmax(0, 1fr);
-  border-top: 2px solid var(--blue);
-  background: rgba(242, 239, 230, 0.92);
-}
-
-.writing-intro {
-  padding: 32px;
-  border-right: 2px solid var(--blue);
-  font-family: var(--font-geist-mono), monospace;
-}
-
-.writing-intro span,
-.writing-card-meta {
-  color: var(--redline);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.writing-intro h2 {
-  max-width: 420px;
-  margin: 18px 0 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.6rem, 5vw, 5.5rem);
-  line-height: 0.9;
-  letter-spacing: 0;
-}
-
-.writing-intro p {
-  max-width: 520px;
-  margin: 24px 0 0;
-  font-size: 0.88rem;
-  font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.writing-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.writing-card {
-  min-width: 0;
-  min-height: 260px;
-  padding: 28px 32px;
-  border-right: 1px solid var(--blue);
-  border-bottom: 1px solid var(--blue);
-  background: rgba(242, 239, 230, 0.68);
-}
-
-.writing-card:nth-child(2n) {
-  border-right: 0;
-}
-
-.writing-card-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.writing-card-copy {
-  margin-top: 34px;
-  font-family: var(--font-geist-mono), monospace;
-}
-
-.writing-card-copy h3 {
-  max-width: 560px;
-  margin: 0;
-  font-size: clamp(1.05rem, 1.7vw, 1.45rem);
-  line-height: 1.12;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.writing-card-copy p {
-  max-width: 620px;
-  margin: 18px 0 0;
-  font-size: 0.84rem;
-  font-weight: 700;
-  line-height: 1.45;
-}
-
-.writing-card-copy small {
-  display: block;
-  max-width: 620px;
-  margin-top: 18px;
-  color: var(--redline);
-  font-size: 0.74rem;
-  font-weight: 800;
-  line-height: 1.38;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .sheet-footer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 20px;
   padding: 24px 32px;
   border-top: 2px solid var(--blue);
@@ -537,14 +344,6 @@ a {
 }
 
 @media (max-width: 900px) {
-  .sheet-meta {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sheet-meta div:last-child {
-    text-align: left;
-  }
-
   .title-block {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -563,14 +362,6 @@ a {
     border-bottom: 2px solid var(--blue);
   }
 
-  .role-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .role-strip span {
-    border-bottom: 1px solid var(--blue);
-  }
-
   .project-header {
     display: none;
   }
@@ -584,15 +375,6 @@ a {
     margin-top: 10px;
   }
 
-  .writing-section {
-    grid-template-columns: 1fr;
-  }
-
-  .writing-intro {
-    border-right: 0;
-    border-bottom: 2px solid var(--blue);
-  }
-
   .sheet-footer {
     grid-template-columns: 1fr;
   }
@@ -601,12 +383,6 @@ a {
 @media (max-width: 560px) {
   .blueprint-sheet {
     border-width: 1px;
-  }
-
-  .sheet-meta {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    padding: 18px;
   }
 
   .ruler {
@@ -619,18 +395,6 @@ a {
 
   .coordinate-box {
     display: none;
-  }
-
-  .angle-note,
-  .scale-note {
-    right: 18px;
-    left: 18px;
-    font-size: 0.68rem;
-    line-height: 1.2;
-  }
-
-  .scale-note {
-    top: 42px;
   }
 
   .title-block {
@@ -648,45 +412,14 @@ a {
     letter-spacing: 0.06em;
   }
 
-  .field-footer {
-    flex-direction: column;
-    gap: 4px;
-  }
-
   .mission-panel,
   .project-row,
-  .writing-intro,
-  .writing-card,
   .sheet-footer {
     padding-right: 18px;
     padding-left: 18px;
   }
 
-  .role-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .role-strip span {
-    min-height: 42px;
-    padding-right: 18px;
-    padding-left: 18px;
-    border-right: 0;
-  }
-
   .trajectory li {
-    padding-left: 36px;
-  }
-
-  .writing-list {
-    grid-template-columns: 1fr;
-  }
-
-  .writing-card {
-    min-height: 0;
-    border-right: 0;
-  }
-
-  .writing-intro h2 {
-    font-size: clamp(2.4rem, 13vw, 4rem);
+    padding-left: 22px;
   }
 }

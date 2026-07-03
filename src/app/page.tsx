@@ -2,65 +2,65 @@ const projects = [
   {
     id: "01",
     title: "HOK AI Canvas",
-    subtitle: "A canvas for designers working with AI",
+    subtitle: "Creative AI workspace for design teams",
     category: "AI TOOLS",
     href: "https://github.com/HOKGroup/ai-canvas",
-    body: "A shared workspace where designers can keep prompts, images, model runs, and generated work in one place instead of losing the thread in chat tools.",
-    proof: "Built with Next.js, React, tldraw, model integrations, and prompt workflows",
+    body: "Built for design teams using image models in real project work. It keeps prompts, images, model runs, and reusable prompt inputs in one workspace so designers can iterate without losing context.",
+    proof: "Next.js, React, tldraw, Prisma/PostgreSQL, Azure Blob, Entra ID, provider integrations",
   },
   {
     id: "02",
     title: "Deep Due Diligence",
-    subtitle: "IBM Enterprise Agents Hackathon, 1st place",
+    subtitle: "Compliance review workspace for sanctions teams",
     category: "AGENTS",
     href: "https://github.com/ashkanrdn/DD",
-    body: "A diligence workspace for sanctions and AML review. It gives analysts watchlist checks, ownership context, risk rules, and agent helpers that stay inside the workflow.",
-    proof: "Built with Next.js, Prisma, Postgres, sanctions data, and a workflow engine",
+    body: "Built for sanctions and AML review; it won first place at the IBM Enterprise Agents Hackathon. It combines watchlist screening, ownership context, deterministic risk rules, bounded agents, and audit-ready reports for analyst review.",
+    proof: "Next.js, shadcn/ui, Prisma/PostgreSQL, workers, sanctions/watchlist data, bounded agents",
   },
   {
     id: "03",
     title: "Sanctions Expert Feed",
-    subtitle: "A working reader for sanctions professionals",
-    category: "B2B PRODUCT",
+    subtitle: "Regulatory reader for sanctions teams",
+    category: "LEGAL TECH",
     href: "https://feed.sanctionsexpert.com",
-    body: "A product for people who track regulatory changes every day. It supports briefings, saved work, search, feedback, and the admin pieces needed to keep it running.",
-    proof: "Built with Next.js, Prisma, Supabase Postgres, Better Auth, and PostHog",
+    body: "Built for people who track sanctions and AML changes. It turns source material into Briefs with citations, taxonomy tags, entity context, saved/read state, feedback, and admin review.",
+    proof: "Next.js, Prisma, Supabase Postgres, Better Auth, PostHog, source citation models",
   },
   {
     id: "04",
     title: "SiteBrief",
-    subtitle: "First place, Vercel x Google DeepMind Hackathon",
+    subtitle: "NYC site diligence brief generator",
     category: "PROPTECH",
     href: "https://github.com/ashkanrdn/DueIntelligence",
-    body: "A tool for reading an NYC parcel quickly. It pulls public city data, checks zoning context, and turns the result into a sourced site brief.",
-    proof: "Built with Vercel AI SDK, Gemini, Deck.gl, MapLibre, and Socrata APIs",
+    body: "Built for early-stage NYC site review; it won first place at the Vercel x Google DeepMind Hackathon. It pulls parcel, zoning, flood, DOB, comps, census, and HUD rent data into a sourced development brief.",
+    proof: "Next.js, Gemini, Vercel AI SDK, Deck.gl, Socrata APIs, vision reasoning",
   },
   {
     id: "05",
-    title: "CASI",
-    subtitle: "California justice data, made easier to read",
+    title: "CASI Justice Explorer",
+    subtitle: "County justice data explorer",
     category: "CIVIC DATA",
     href: "https://casi-2.vercel.app",
-    body: "A map-based data product for comparing California counties across justice metrics, demographics, rankings, charts, and exports.",
-    proof: "Built with Next.js, TypeScript, Redux Toolkit, Deck.gl, and Mapbox",
+    body: "Built for comparing California counties across justice metrics. It gives people maps, rankings, charts, per-capita views, filters, and exports without forcing them into raw tables.",
+    proof: "Next.js, TypeScript, Redux Toolkit, Deck.gl, Mapbox GL, preprocessed county data",
   },
   {
     id: "06",
     title: "Prompt Analysis",
-    subtitle: "Learning from how people actually prompt",
+    subtitle: "AI Canvas usage research system",
     category: "RESEARCH",
     href: "https://github.com/HOKGroup/prompt-analysis",
-    body: "A local research system for AI Canvas prompt data. It helps turn raw usage into clusters, summaries, review screens, and product questions worth chasing.",
-    proof: "Built with Python, SQLite, Chroma, FastAPI, Next.js, and clustering workflows",
+    body: "Built to study how designers actually prompt inside AI Canvas. It turns raw prompt records into clusters, summaries, review screens, and product questions about where the tool helps or breaks.",
+    proof: "Python, SQLite, Chroma, FastAPI, Next.js, clustering workflows",
   },
   {
     id: "07",
     title: "Proposal Library",
-    subtitle: "A better way to search proposal work",
+    subtitle: "Internal proposal search workspace",
     category: "INTERNAL TOOL",
     href: "https://github.com/HOKGroup/proposal_library",
-    body: "An internal tool for finding and reviewing proposal decks and PDFs, with upload flows, project lookup, background conversion, search, and deep zoom viewing.",
-    proof: "Built with Next.js, Entra auth, workers, LanceDB, and OpenSeadragon",
+    body: "Built for teams that need to find past proposal work across PDFs and decks. It handles upload, extraction, indexing, project lookup, hybrid search, and deep-zoom review.",
+    proof: "Next.js, Entra ID, Postgres/Prisma job queue, Elasticsearch, LanceDB, OpenSeadragon",
   },
 ];
 
@@ -68,70 +68,23 @@ const tools = [
   "NEXT.JS / REACT",
   "PYTHON / FASTAPI",
   "POSTGRES / PRISMA",
-  "WEBGL / THREE.JS",
+  "RETRIEVAL / SEARCH",
   "LLM AGENTS / AI SDK",
-  "DOMAIN MODELING",
+  "CITATIONS / REVIEW FLOWS",
 ];
 
 const trajectory = [
   {
     label: "Architecture",
-    body: "I started in architecture. That taught me to think in constraints, drawings, clients, and real-world mess.",
+    body: "Technical drawings, constraints, site context, client review.",
   },
   {
     label: "Computational design",
-    body: "Then I moved into computational design. Rhino, Grasshopper, Revit, Dynamo, Python, C#, WebGL. Tools for people doing design work.",
+    body: "Rhino, Grasshopper, Revit, Dynamo, Python, C#, WebGL.",
   },
   {
     label: "Software development",
-    body: "Now I build software. Mostly AI tools, data products, and workflow systems with TypeScript, React, Next.js, Python, and Postgres.",
-  },
-];
-
-const roleSignals = [
-  "Forward Deployed Engineer",
-  "AI Product Engineer",
-  "Full-Stack Product Engineer",
-  "Prototype Engineer",
-  "Creative Tools Engineer",
-];
-
-const writingDrafts = [
-  {
-    id: "W01",
-    title: "When you own the AI tool, you own the learning loop",
-    status: "DRAFT",
-    angle:
-      "AI Canvas gives us more than generated images. It lets us see what designers are trying to do, where the tool helps, and where the workflow breaks.",
-    fill:
-      "Add real prompt patterns, screenshots from Prompt Analysis, and one product decision that came from the data.",
-  },
-  {
-    id: "W02",
-    title: "Eval loops for architecture agents",
-    status: "OUTLINE",
-    angle:
-      "A practical way to test architecture agents on RFIs and submittals, using real cases and clear pass or fail checks.",
-    fill:
-      "Add the masonry submittal example, the baseline comparison, and the parts a domain expert should be able to edit without touching code.",
-  },
-  {
-    id: "W03",
-    title: "From architecture to computational design to software",
-    status: "NOTES",
-    angle:
-      "The honest version of my path: architecture taught me constraints, computational design taught me tools, and software became the way to ship the work.",
-    fill:
-      "Add the moments where the path changed. What felt useful, what stopped fitting, and what software let me do that architecture could not.",
-  },
-  {
-    id: "W04",
-    title: "Controls beat prompt ping-pong",
-    status: "SEED",
-    angle:
-      "When people keep rewriting the same prompt, the product is telling you it needs a control, a preset, or a better workflow.",
-    fill:
-      "Add examples from creative tools and prototype demos where the interface made the AI easier to steer.",
+    body: "TypeScript, React, Next.js, Python, Postgres, AI workflows, retrieval/search.",
   },
 ];
 
@@ -154,25 +107,6 @@ export default function Home() {
   return (
     <main className="blueprint-page">
       <section className="blueprint-sheet" aria-label="Ashkan Radnia portfolio">
-        <header className="sheet-meta" aria-label="Technical metadata">
-          <div>
-            <span>PORTFOLIO</span>
-            <strong>ASHKAN RADNIA</strong>
-          </div>
-          <div>
-            <span>LOCATION</span>
-            <strong>BROOKLYN NY</strong>
-          </div>
-          <div>
-            <span>LOOKING FOR</span>
-            <strong>AI PRODUCT / FDE ROLES</strong>
-          </div>
-          <div>
-            <span>UPDATED</span>
-            <strong>02.JUL.2026</strong>
-          </div>
-        </header>
-
         <div className="ruler" aria-hidden="true">
           {rulerMarks.map((mark) => (
             <span key={mark}>{mark}</span>
@@ -180,40 +114,31 @@ export default function Home() {
         </div>
 
         <section className="drawing-field">
-          <div className="angle-note">ARCHITECTURE TO SOFTWARE</div>
-          <div className="scale-note">TOOLS FOR MESSY WORK</div>
-          <div className="coordinate-box">AI PRODUCT / FULL STACK</div>
+          <div className="coordinate-box">RETRIEVAL / AGENTS / PRODUCT</div>
 
           <div className="title-block">
             <h1>Ashkan Radnia</h1>
-            <p>I build AI tools for work that needs domain context.</p>
-          </div>
-
-          <div className="field-footer">
-            <span>Started in architecture</span>
-            <span>Now building software for messy domains</span>
+            <p>Software developer / computational designer</p>
           </div>
         </section>
 
         <section className="archive-index" aria-label="Portfolio index">
           <aside className="mission-panel">
             <p className="mission-copy">
-              I like problems where the hard part is not just the code. The hard
-              part is learning the work well enough to build the right tool.
-              That has taken me through design tools, sanctions research, civic
-              data, internal search, and AI product prototypes.
+              I build AI, search, data, and visualization tools for design,
+              compliance, civic data, and document-heavy workflows.
             </p>
 
             <div className="trajectory">
-              <h2>How I got here</h2>
-              <ol>
+              <h2>Background</h2>
+              <ul>
                 {trajectory.map((step) => (
                   <li key={step.label}>
                     <strong>{step.label}</strong>
                     <span>{step.body}</span>
                   </li>
                 ))}
-              </ol>
+              </ul>
             </div>
 
             <div className="apparatus">
@@ -227,15 +152,9 @@ export default function Home() {
           </aside>
 
           <div className="project-panel">
-            <div className="role-strip" aria-label="Target roles">
-              {roleSignals.map((role) => (
-                <span key={role}>{role}</span>
-              ))}
-            </div>
-
             <div className="project-header">
               <span>ID</span>
-              <span>Work I can point to</span>
+              <span>Selected systems</span>
               <span>CATEGORY</span>
             </div>
 
@@ -256,37 +175,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="writing-section" aria-label="Writing and draft articles">
-          <div className="writing-intro">
-            <span>WRITING</span>
-            <h2>Draft articles to fill in</h2>
-            <p>
-              I want the writing to explain the work without turning it into
-              marketing. These are the pieces I should write next.
-            </p>
-          </div>
-
-          <div className="writing-list">
-            {writingDrafts.map((draft) => (
-              <article className="writing-card" key={draft.id}>
-                <div className="writing-card-meta">
-                  <span>{draft.id}</span>
-                  <strong>{draft.status}</strong>
-                </div>
-                <div className="writing-card-copy">
-                  <h3>{draft.title}</h3>
-                  <p>{draft.angle}</p>
-                  <small>{draft.fill}</small>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
         <footer className="sheet-footer">
           <span>CONTACT: ashkan.rdn@gmail.com</span>
           <span>LINKEDIN / GITHUB: ashkanradnia / ashkanrdn</span>
-          <span>More soon</span>
         </footer>
       </section>
     </main>
