@@ -10,11 +10,11 @@ const projects = [
   },
   {
     id: "02",
-    title: "Deep Due Diligence",
+    title: "Deep Due Diligence (IBM Best Implementation Award)",
     subtitle: "Compliance review workspace for sanctions teams",
     category: "AGENTS",
     href: "https://github.com/ashkanrdn/DD",
-    body: "Built for sanctions and AML review; it won the Best Implementation Award at the IBM Enterprise Agents Hackathon. It combines watchlist screening, ownership context, deterministic risk rules, bounded agents, and audit-ready reports for analyst review.",
+    body: "Built for sanctions and AML review. It combines watchlist screening, ownership context, deterministic risk rules, bounded agents, and audit-ready reports for analyst review.",
     proof: "Next.js, shadcn/ui, Prisma/PostgreSQL, workers, sanctions/watchlist data, bounded agents",
   },
   {
@@ -28,11 +28,11 @@ const projects = [
   },
   {
     id: "04",
-    title: "SiteBrief",
+    title: "SiteBrief (Vercel x Google DeepMind First Place)",
     subtitle: "Real estate site diligence brief generator",
     category: "PROPTECH",
     href: "https://github.com/ashkanrdn/DueIntelligence",
-    body: "Built for early-stage real estate site review; it won first place at the Vercel x Google DeepMind Hackathon. It pulls parcel, zoning, flood, DOB, comps, census, and HUD rent data into a sourced development brief.",
+    body: "Built for early-stage real estate site review. It pulls parcel, zoning, flood, DOB, comps, census, and HUD rent data into a sourced development brief.",
     proof: "Next.js, Gemini, Vercel AI SDK, Deck.gl, Socrata APIs, vision reasoning",
   },
   {
